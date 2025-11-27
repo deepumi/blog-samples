@@ -18,6 +18,13 @@ The goal is to show a reliable way to handle critical, asynchronous notification
 }
 ```
 
-3. Run the application. Events are triggered via the sample controller and processed instantly in the background by the `BackgroundService`.
+3. Run the application and add the query string parameter `sendAlert=true` to the URL.
+```
+// dotnet run
+http://localhost:5002?sendAlert=true
+or 
+// Visual Studio
+https://localhost:7166/?sendAlert=true
+```
 
-For the full explanation, code breakdown, and best practices, see the blog post: [Building an Event Queue in ASP.NET Core]("#")
+See the blog post for more info and best practices: [Building an Event Queue in ASP.NET Core]("https://deepumi.com/blog/building-an-event-queue-in-aspnet-core.html")
