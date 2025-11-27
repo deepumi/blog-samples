@@ -9,11 +9,11 @@ public sealed class EventConsumerService(
     private readonly IEnumerable<IAlertProvider> _providers = providers;
     private readonly ILogger<EventConsumerService> _logger = logger;
 
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override async Task ExecuteAsync(CancellationToken cancellationToken)
     {
         _logger.LogInformation("EventConsumerService started");
 
-        await foreach (var eventMessage in _queue.ReadAllAsync(stoppingToken))
+        await foreach (var eventMessage in _queue.ReadAllAsync(cancellationToken))
         {
             _logger.LogInformation("Consuming event {Title} at {TimestampUtc}", eventMessage.AlterTitle, eventMessage.TimestampUtc);
 
@@ -21,7 +21,7 @@ public sealed class EventConsumerService(
             {
                 try
                 {
-                    await provider.SendAsync(eventMessage, stoppingToken);
+                    await provider.SendAsync(eventMessage, cancellationToken);
                 }
                 catch (Exception ex)
                 {
