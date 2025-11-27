@@ -27,4 +27,4 @@ or
 https://localhost:7166/?sendAlert=true
 ```
 
-See the blog post for more info and best practices: [Building an Event Queue in ASP.NET Core]("https://deepumi.com/blog/building-an-event-queue-in-aspnet-core.html")
+See the blog post for more info and best practices: [Building an Event Queue in ASP.NET Core](https://deepumi.com/blog/building-an-event-queue-in-aspnet-core.html)
